@@ -1,0 +1,131 @@
+/**
+ * Atlantic - Autoatendimento - Style Guide
+ * Cores e Tipografia baseadas no Figma
+ */
+
+:root {
+  /* Typography */
+  --font-family-base: 'Lato', 'Open Sans', sans-serif;
+  
+  --font-size-1: 12px;
+  --line-height-1: 18px;
+  
+  --font-size-2: 14px;
+  --line-height-2: 20px;
+  
+  --font-size-3: 16px;
+  --line-height-3: 22px;
+  
+  --font-size-4: 18px;
+  --line-height-4: 24px;
+  
+  --font-size-5: 20px;
+  --line-height-5: 26px;
+  
+  --font-size-6: 24px;
+  --line-height-6: 30px;
+  
+  --font-size-7: 28px;
+  --line-height-7: 34px;
+  
+  --font-size-8: 32px;
+  --line-height-8: 38px;
+  
+  --font-size-9: 36px;
+  --line-height-9: 42px;
+  
+  --font-size-10: 40px;
+  --line-height-10: 46px;
+  
+  --font-size-11: 44px;
+  --line-height-11: 50px;
+  
+  --font-size-12: 48px;
+  --line-height-12: 54px;
+  
+  --font-size-13: 52px;
+  --line-height-13: 58px;
+
+  /* Primary Colors */
+  --color-purple-alesp: #41284B;
+  --color-green-alesp: #3AAA35;
+  --color-cyan-alesp: #36A9E1;
+  --color-blue-alesp: #262454; /* Cor preferencial */
+
+  /* Tonal Variations - Purple */
+  --color-purple-1: #AA7FB7;
+  --color-purple-2: #9661A5;
+  --color-purple-3: #6F4580;
+
+  /* Tonal Variations - Green */
+  --color-green-1: #A0CE95;
+  --color-green-2: #70B966;
+  --color-green-3: #24672D;
+
+  /* Tonal Variations - Cyan */
+  --color-cyan-1: #B3DFF0;
+  --color-cyan-2: #89D0ED;
+  --color-cyan-3: #62C6EE;
+
+  /* Neutral Colors */
+  --color-black: #000000;
+  --color-white: #FFFFFF;
+
+  /* Grayscale */
+  --color-gray-1: #FAFAFA;
+  --color-gray-2: #F5F5F5;
+  --color-gray-3: #EEEEEE;
+  --color-gray-4: #E0E0E0;
+  --color-gray-5: #BDBDBD;
+  --color-gray-6: #9E9E9E;
+  --color-gray-7: #757575;
+  --color-gray-8: #616161;
+  --color-gray-9: #424242;
+  --color-gray-10: #212121;
+
+  /* Auxiliary Colors */
+  --color-text-main: #424242;
+  --color-header-table: #6C757D;
+  --color-hover: #11C4A3;
+  --color-error: #DC3545;
+  --color-validated-table: #019CDE;
+  --color-pendency-table: #FF5555;
+  --color-alert: #F2E600;
+  --color-success: #246E71;
+
+  /* Pastel Colors */
+  --color-green-pastel: #ADF9D8;
+  --color-yellow-pastel: #FFF4BB;
+  --color-blue-pastel: #86E3FF;
+  --color-red-pastel: #FFABAD;
+}
+
+/* Configurações Globais Base */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html, body {
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-3);
+  line-height: var(--line-height-3);
+  color: var(--color-gray-9);
+  background-color: var(--color-gray-1); /* Fundo padrão leve */
+  margin: 0;
+  padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 0;
+  font-weight: bold;
+}
+
+a {
+  color: var(--color-blue-alesp);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--color-hover);
+}
