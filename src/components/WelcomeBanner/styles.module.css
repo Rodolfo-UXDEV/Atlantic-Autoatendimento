@@ -1,0 +1,45 @@
+.banner {
+  width: 900px;
+  height: 192px;
+  border-radius: 4px;
+  overflow: hidden;
+  position: relative;
+  /* Placeholder background image using a gradient since we don't have the real image yet */
+  background: linear-gradient(135deg, var(--color-blue-alesp) 0%, #4a4884 100%);
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, rgba(38,36,84,0.9) 0%, rgba(38,36,84,0.4) 100%);
+  display: flex;
+  align-items: center;
+}
+
+.content {
+  padding-left: 54px;
+  color: var(--color-white);
+}
+
+.title {
+  font-family: 'Lato', sans-serif;
+  font-weight: 900;
+  font-size: var(--font-size-7);
+  line-height: var(--line-height-7);
+  margin: 0 0 10px 0;
+}
+
+.subtitle {
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+  font-size: var(--font-size-5);
+  line-height: var(--line-height-5);
+  margin: 0;
+}
+
+.subtitle strong {
+  font-weight: 900;
+}

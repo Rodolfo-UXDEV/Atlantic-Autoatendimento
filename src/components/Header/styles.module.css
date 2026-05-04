@@ -1,0 +1,103 @@
+.header {
+  background-color: var(--color-blue-alesp);
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 18px 0;
+  color: var(--color-white);
+}
+
+.container {
+  width: 900px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logoPlaceholder {
+  width: 126px;
+  height: 56px;
+  background-color: rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Lato', sans-serif;
+  font-weight: 900;
+  border-radius: 4px;
+}
+
+.userInfoWrapper {
+  display: flex;
+  align-items: center;
+  gap: 17px;
+}
+
+.userInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.userName {
+  font-family: 'Lato', sans-serif;
+  font-weight: 900;
+  font-size: var(--font-size-2);
+  margin: 0;
+}
+
+.userId {
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+  font-size: var(--font-size-2);
+  margin: 0;
+}
+
+.divider {
+  width: 1px;
+  height: 50px;
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.notificationBtn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+.notificationDot {
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: var(--color-error);
+  border: 2px solid var(--color-blue-alesp);
+}
+
+.logoutBtn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0;
+}
+
+.logoutText {
+  font-family: 'Lato', sans-serif;
+  font-weight: 900;
+  font-size: var(--font-size-4);
+  color: var(--color-white);
+}
+
+.logoutBtn:hover {
+  opacity: 0.8;
+}
