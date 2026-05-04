@@ -1,9 +1,38 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Search, XCircle, ChevronLeft, ChevronRight } from 'lucide-react';
 import styles from './styles.module.css';
 
-export default function CarrocelSolicitacoes({ property1 = "Default" }) {
-  const isVariant2 = property1 === "Variant2";
+export default function CarrocelSolicitacoes() {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const solicitacoes = [
+    {
+      id: 0,
+      protocolo: "0080001876",
+      status: "TRAMITADO",
+      nome: "NOMEAÇÃO",
+      processo: "0080001876",
+      data: "18/07/2023"
+    },
+    {
+      id: 1,
+      protocolo: "0080001020",
+      status: "EM PROCESSO",
+      nome: "RECADASTRAMENTO",
+      processo: "0050002345",
+      data: "06/05/2023"
+    }
+  ];
+
+  const handlePrev = () => {
+    setCurrentIndex((prev) => (prev === 0 ? solicitacoes.length - 1 : prev - 1));
+  };
+
+  const handleNext = () => {
+    setCurrentIndex((prev) => (prev === solicitacoes.length - 1 ? 0 : prev + 1));
+  };
+
+  const currentSolicitacao = solicitacoes[currentIndex];
 
   return (
     <div className={styles.container}>
@@ -14,29 +43,29 @@ export default function CarrocelSolicitacoes({ property1 = "Default" }) {
             <div className={styles.column}>
               <div className={styles.field}>
                 <span className={styles.label}>Protocolo:</span>
-                <span className={styles.value}>{isVariant2 ? "0080001020" : "0080001876"}</span>
+                <span className={styles.value}>{currentSolicitacao.protocolo}</span>
               </div>
               <div className={styles.field}>
                 <span className={styles.label}>Status do processo:</span>
-                <span className={styles.value}>{isVariant2 ? "EM PROCESSO" : "TRAMITADO"}</span>
+                <span className={styles.value}>{currentSolicitacao.status}</span>
               </div>
             </div>
 
             <div className={styles.column}>
               <div className={styles.field}>
                 <span className={styles.label}>Nome do processo:</span>
-                <span className={styles.value}>{isVariant2 ? "RECADASTRAMENTO" : "NOMEAÇÃO"}</span>
+                <span className={styles.value}>{currentSolicitacao.nome}</span>
               </div>
               <div className={styles.field}>
                 <span className={styles.label}>Processo:</span>
-                <span className={styles.value}>{isVariant2 ? "0050002345" : "0080001876"}</span>
+                <span className={styles.value}>{currentSolicitacao.processo}</span>
               </div>
             </div>
 
             <div className={styles.columnSingle}>
               <div className={styles.field}>
                 <span className={styles.label}>Data de abertura:</span>
-                <span className={styles.value}>{isVariant2 ? "06/05/2023" : "18/07/2023"}</span>
+                <span className={styles.value}>{currentSolicitacao.data}</span>
               </div>
             </div>
           </div>
@@ -59,12 +88,18 @@ export default function CarrocelSolicitacoes({ property1 = "Default" }) {
 
       {/* Pagination / Controls */}
       <div className={styles.controls}>
-        <button className={styles.controlButton}>
+        <button className={styles.controlButton} onClick={handlePrev}>
           <ChevronLeft size={20} />
         </button>
-        <div className={`${styles.dot} ${isVariant2 ? '' : styles.dotActive}`}></div>
-        <div className={`${styles.dot} ${isVariant2 ? styles.dotActive : ''}`}></div>
-        <button className={styles.controlButton}>
+        {solicitacoes.map((_, index) => (
+          <div 
+            key={index}
+            className={`${styles.dot} ${currentIndex === index ? styles.dotActive : ''}`}
+            onClick={() => setCurrentIndex(index)}
+            style={{ cursor: 'pointer' }}
+          ></div>
+        ))}
+        <button className={styles.controlButton} onClick={handleNext}>
           <ChevronRight size={20} />
         </button>
       </div>
