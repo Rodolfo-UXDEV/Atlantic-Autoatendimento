@@ -1,0 +1,139 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  border-radius: 4px;
+  width: 900px;
+  border: 1px solid;
+}
+
+.cardWarning {
+  background-color: #FFF3CD;
+  border-color: #FEC42D;
+}
+
+.cardError {
+  background-color: #ffe3e3;
+  border-color: #970300;
+}
+
+.content {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.iconContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 66px;
+  height: 66px;
+  border-radius: 50%;
+  background-color: var(--color-white);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.textContent {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.title {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 700;
+  font-size: var(--font-size-5);
+  line-height: var(--line-height-5);
+  margin: 0;
+}
+
+.titleWarning {
+  color: var(--color-gray-10); 
+}
+
+.titleError {
+  color: #B94A48; 
+}
+
+.description {
+  font-family: 'Open Sans', sans-serif;
+  font-size: var(--font-size-3);
+  line-height: var(--line-height-3);
+  color: var(--color-text-main);
+}
+
+.description p {
+  margin: 0;
+}
+
+.actionButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 38px;
+  padding: 10px;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  font-size: var(--font-size-2);
+  line-height: var(--line-height-2);
+  transition: opacity 0.2s;
+  width: 200px;
+}
+
+.actionButton:hover {
+  opacity: 0.9;
+}
+
+.btnWarning {
+  background-color: #FEC42D;
+  color: var(--color-black);
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 700;
+}
+
+.btnError {
+  background-color: #B94A48;
+  color: var(--color-white);
+  font-family: 'Lato', sans-serif;
+  font-weight: 900;
+}
+
+.controls {
+  display: flex;
+  gap: 7px;
+  align-items: center;
+}
+
+.controlButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  color: var(--color-black);
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: var(--color-gray-4); 
+}
+
+.dotActive {
+  background-color: var(--color-blue-alesp);
+}
