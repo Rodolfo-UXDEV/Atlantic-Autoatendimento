@@ -1,10 +1,40 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { TriangleAlert, ChevronLeft, ChevronRight } from 'lucide-react';
 import styles from './styles.module.css';
 
-export default function CarrocelNotificacoes({ property1 = "Default" }) {
-  const isVariant2 = property1 === "Variant2";
-  
+export default function CarrocelNotificacoes() {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const notifications = [
+    {
+      id: 0,
+      type: "Warning",
+      title: "Importante!",
+      desc1: "Você tem 2 ocorrências de ausências para justificar.",
+      desc2: "Clique no botão ao lado e justifique agora!",
+      btnText: "Justificar"
+    },
+    {
+      id: 1,
+      type: "Error",
+      title: "Atenção!",
+      desc1: "O período de recadastramento já começou, evite complicações",
+      desc2: "no seu cadastro, clique no botão ao lado e regularize!",
+      btnText: "Ir para o recadastramento"
+    }
+  ];
+
+  const handlePrev = () => {
+    setCurrentIndex((prev) => (prev === 0 ? notifications.length - 1 : prev - 1));
+  };
+
+  const handleNext = () => {
+    setCurrentIndex((prev) => (prev === notifications.length - 1 ? 0 : prev + 1));
+  };
+
+  const currentNotification = notifications[currentIndex];
+  const isVariant2 = currentNotification.type === "Error";
+
   return (
     <div className={styles.container}>
       <div className={`${styles.card} ${isVariant2 ? styles.cardError : styles.cardWarning}`}>
@@ -14,27 +44,33 @@ export default function CarrocelNotificacoes({ property1 = "Default" }) {
           </div>
           <div className={styles.textContent}>
             <p className={`${styles.title} ${isVariant2 ? styles.titleError : styles.titleWarning}`}>
-              {isVariant2 ? "Atenção!" : "Importante!"}
+              {currentNotification.title}
             </p>
             <div className={styles.description}>
-              <p>{isVariant2 ? "O período de recadastramento já começou, evite complicações" : "Você tem 2 ocorrências de ausências para justificar."}</p>
-              <p>{isVariant2 ? "no seu cadastro, clique no botão ao lado e regularize!" : "Clique no botão ao lado e justifique agora!"}</p>
+              <p>{currentNotification.desc1}</p>
+              <p>{currentNotification.desc2}</p>
             </div>
           </div>
         </div>
         <button className={`${styles.actionButton} ${isVariant2 ? styles.btnError : styles.btnWarning}`}>
-          {isVariant2 ? "Ir para o recadastramento" : "Justificar"}
+          {currentNotification.btnText}
         </button>
       </div>
 
       {/* Pagination / Controls */}
       <div className={styles.controls}>
-        <button className={styles.controlButton}>
+        <button className={styles.controlButton} onClick={handlePrev}>
           <ChevronLeft size={20} />
         </button>
-        <div className={`${styles.dot} ${styles.dotActive}`}></div>
-        <div className={styles.dot}></div>
-        <button className={styles.controlButton}>
+        {notifications.map((_, index) => (
+          <div 
+            key={index}
+            className={`${styles.dot} ${currentIndex === index ? styles.dotActive : ''}`}
+            onClick={() => setCurrentIndex(index)}
+            style={{ cursor: 'pointer' }}
+          ></div>
+        ))}
+        <button className={styles.controlButton} onClick={handleNext}>
           <ChevronRight size={20} />
         </button>
       </div>
